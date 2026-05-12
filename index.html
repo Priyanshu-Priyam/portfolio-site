@@ -137,7 +137,7 @@
  }
  .highlights-grid {
  display: grid;
- grid-template-columns: repeat(3, 1fr);
+ grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
  gap: 2px;
  }
  .highlight-card {
@@ -162,6 +162,7 @@
  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1);
  }
  .highlight-card:nth-child(2)::after { background: var(--lime); }
+ .highlight-card:nth-child(4)::after { background: var(--lime); }
  .highlight-card:hover { background: var(--surface2); }
  .highlight-card:hover::after { transform: scaleX(1); }
  .highlight-ord {
@@ -173,6 +174,7 @@
  margin-bottom: 14px;
  }
  .highlight-card:nth-child(2) .highlight-ord { color: var(--lime); }
+ .highlight-card:nth-child(4) .highlight-ord { color: var(--lime); }
  .highlight-name {
  font-family: var(--serif);
  font-size: clamp(22px, 2.4vw, 28px);
@@ -202,6 +204,7 @@
  .highlight-card:nth-child(1) .highlight-cta { color: var(--gold); }
  .highlight-card:nth-child(2) .highlight-cta { color: var(--lime); }
  .highlight-card:nth-child(3) .highlight-cta { color: var(--gold); }
+ .highlight-card:nth-child(4) .highlight-cta { color: var(--lime); }
  .highlight-card:hover .highlight-cta { gap: 10px; }
 
  /* ── HERO ───────────────────────────── */
@@ -763,6 +766,21 @@
  background: linear-gradient(90deg, var(--gold), transparent 60%);
  }
  .writing-feature:hover { border-color: rgba(212,168,67,0.3); }
+ .opensource-block { cursor: default; }
+ .opensource-actions {
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+ gap: 14px 20px;
+ margin-top: 28px;
+ }
+ .opensource-block .writing-blurb a {
+ color: var(--gold);
+ text-decoration: underline;
+ text-underline-offset: 3px;
+ transition: color 0.2s;
+ }
+ .opensource-block .writing-blurb a:hover { color: var(--lime); }
  .writing-source {
  font-family: var(--mono);
  font-size: 10px;
@@ -1041,6 +1059,7 @@
  <li><a href="#experience">Experience</a></li>
  <li><a href="#skills">Skills</a></li>
  <li><a href="#writing">Writing</a></li>
+ <li><a href="#opensource">Open Source</a></li>
  </ul>
  <a href="https://calendly.com/priyam-ayurythm/30min" class="nav-cta" target="_blank" rel="noopener noreferrer">Work Together →</a>
 </nav>
@@ -1082,6 +1101,15 @@
  <div class="highlight-name">Alt Reality</div>
  <div class="highlight-meta">A first-principles framework for why AI agents fail and how to make them observable and reliable</div>
  <span class="highlight-cta">Read article ↗</span>
+ </a>
+ <a href="https://github.com/open-gitagent/gitagent-protocol/pull/44"
+ class="highlight-card reveal reveal-d3"
+ target="_blank"
+ rel="noopener noreferrer">
+ <div class="highlight-ord">04 · Open Source</div>
+ <div class="highlight-name">GitAgent · Regulated Industries</div>
+ <div class="highlight-meta">Merged contribution to <strong>open-gitagent/gitagent-protocol</strong>: git-native compliance (maker-checker ↔ PR merges, audit ↔ git log). GitClose CFO month-end demo; issue <strong>#40</strong> → merged PR <strong>#44</strong>.</div>
+ <span class="highlight-cta">View merged PR ↗</span>
  </a>
  </div>
 </section>
@@ -1441,6 +1469,29 @@
  </a>
 </section>
 
+<!-- ── OPEN SOURCE ─────────────────────────── -->
+<section id="opensource">
+ <div class="section-header">
+ <span class="section-num">05</span>
+ <h2 class="section-title">Open Source</h2>
+ <div class="section-rule"></div>
+ </div>
+
+ <div class="writing-feature reveal opensource-block">
+ <div>
+ <div class="writing-source">Open GitAgent · gitagent-protocol</div>
+ <div class="writing-title">"Compliance by Design" —<br>git workflows as financial controls</div>
+ <div class="writing-blurb">After the GitAgent launch I opened <a href="https://github.com/open-gitagent/gitagent-protocol/issues/40" target="_blank" rel="noopener noreferrer">issue&nbsp;#40</a> arguing that regulated teams do not need to bolt compliance onto agents when the runtime is git: maker-checker maps to PR merges, segregation of duties to branch protection, immutable audit trails to <strong>git log</strong>, control documentation to <strong>RULES.md</strong>, and point-in-time snapshots to <strong>tags</strong>. I shipped <a href="https://github.com/Priyanshu-Priyam/gitclose" target="_blank" rel="noopener noreferrer">GitClose</a>—three GitAgent-style agents closing a fictional engineering firm's month-end books with every agent action as a commit and every approval as a merged PR. Maintainer review led to merged <a href="https://github.com/open-gitagent/gitagent-protocol/pull/44" target="_blank" rel="noopener noreferrer">PR&nbsp;#44</a>, adding <strong>docs/regulated-industries.md</strong> with the isomorphism table and GitClose as the reference pattern (Lyzr / Open GitAgent ecosystem).</div>
+ <div class="opensource-actions">
+ <a href="https://github.com/open-gitagent/gitagent-protocol/pull/44" class="proj-link gold" target="_blank" rel="noopener noreferrer">Merged PR #44 ↗</a>
+ <a href="https://github.com/open-gitagent/gitagent-protocol/issues/40" class="proj-link muted" target="_blank" rel="noopener noreferrer">Issue #40 ↗</a>
+ <a href="https://github.com/Priyanshu-Priyam/gitclose" class="proj-link lime" target="_blank" rel="noopener noreferrer">GitClose repo ↗</a>
+ </div>
+ </div>
+ <div class="writing-arrow-wrap" aria-hidden="true">→</div>
+ </div>
+</section>
+
 <!-- ── CONTACT ───────────────────────────────── -->
 <section id="contact">
  <div class="contact-wrap">
@@ -1451,6 +1502,9 @@
  <div class="contact-panel reveal reveal-d2">
  <div class="contact-panel-label">Connect</div>
  <div class="contact-social">
+ <a href="https://github.com/Priyanshu-Priyam" class="contact-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+ <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.113.825-.258.825-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.225.694.825.577C20.565 21.795 24 17.31 24 12c0-6.63-5.37-12-12-12z"/></svg>
+ </a>
  <a href="https://www.linkedin.com/in/priyanshu-ps" class="contact-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  </a>
@@ -1461,6 +1515,7 @@
  <div class="contact-email-note">Email</div>
  <a href="mailto:priyam.niftem@gmail.com" class="contact-email-primary">priyam.niftem@gmail.com</a>
  <div class="contact-secondary-links">
+ <a href="https://github.com/Priyanshu-Priyam" target="_blank" rel="noopener noreferrer">GitHub profile ↗</a>
  <a href="https://youtu.be/32mRh6h9v1I" target="_blank" rel="noopener noreferrer">Product demo reels on YouTube ↗</a>
  </div>
  </div>
@@ -1473,6 +1528,9 @@
  <div class="footer-copy">© 2026 Priyanshu Priyam</div>
  <div class="footer-right">
  <div class="footer-social">
+ <a href="https://github.com/Priyanshu-Priyam" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+ <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.113.825-.258.825-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.225.694.825.577C20.565 21.795 24 17.31 24 12c0-6.63-5.37-12-12-12z"/></svg>
+ </a>
  <a href="https://www.linkedin.com/in/priyanshu-ps" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  </a>
